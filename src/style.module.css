@@ -1,0 +1,21 @@
+.main_container {
+  padding: 25px;
+  display:flex;
+  height: 100vh;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header{
+    flex: 2;
+}
+
+.tv_show_detail{
+    flex:4;
+}
+.recommendations{
+    flex:2;
+   
+}
