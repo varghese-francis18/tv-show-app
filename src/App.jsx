@@ -1,14 +1,33 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import s from "./style.module.css";
-import { TVShowAPI } from "./tv-show";
+import { TVShowAPI } from "./API/tv-show";
+import { BACKDROP_PATH } from "./API/config";
 
 export function App() {
+  const [currentTVShow, setCurrentTVShow] = useState();
+
+  async function fetchPopulars() {
+    const popularTVShowList = await TVShowAPI.fetchPopulars();
+    if (popularTVShowList.length > 0) {
+      setCurrentTVShow(popularTVShowList[0]);
+    }
+  }
+
   useEffect(() => {
-    TVShowAPI.fetchPopulars();
+    fetchPopulars();
   }, []);
 
+  console.log(currentTVShow);
+
   return (
-    <div className={s.main_container}>
+    <div
+      className={s.main_container}
+      style={{
+        background: currentTVShow
+          ? `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)) ,url("${BACKDROP_PATH}${currentTVShow.backdrop_path}") no-repeat center / cover`
+          : "black",
+      }}
+    >
       <div className={s.header}>
         <div className="row">
           <div className="col-4">
