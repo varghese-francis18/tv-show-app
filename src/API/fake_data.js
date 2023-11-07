@@ -12,7 +12,7 @@ export const FAKE_POPULARS = [
       "German daily news program, the oldest still existing program on German television.",
     popularity: 3183.912,
     poster_path: "/7dFZJ2ZJJdcmkp05B9NWlqTJ5tq.jpg",
-    vote_average: 7.4,
+    vote_average: 9.99,
     vote_count: 155,
   },
 ];
