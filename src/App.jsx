@@ -4,6 +4,7 @@ import { TVShowAPI } from "./tv-show";
 import { BACKDROP_PATH } from "./API/config";
 import TVShowDetail from "./components/TVShowDetail/TVShowDetail";
 import Logo from "./components/Logo/Logo";
+import LogoImg from "./assets/logo.jpg";
 
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
@@ -33,7 +34,7 @@ export function App() {
       <div className={s.header}>
         <div className="row">
           <div className="col-4">
-            {/* <Logo img={} title='The Watcher' subTitle=`Find the Best`/> */}
+            <Logo img={LogoImg} title="The Watcher" subTitle="Find the Best" />
           </div>
           <div className="col-md-12 col-lg-4">
             <input type="text" style={{ width: "100%" }} />

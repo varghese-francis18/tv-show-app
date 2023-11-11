@@ -1,0 +1,21 @@
+.container {
+
+    display: flex;
+}
+
+.logo{
+    height: 50px;
+    width:50px;
+}
+
+.title{
+    font-size: 25px;
+    font-weight: 400;
+    padding: 5px 0px 0px 5px;
+}
+
+.subtitle{
+    margin-left: 5px;
+    white-space: nowrap;
+}
+
