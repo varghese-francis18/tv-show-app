@@ -5,9 +5,11 @@ import { BACKDROP_PATH } from "./API/config";
 import TVShowDetail from "./components/TVShowDetail/TVShowDetail";
 import Logo from "./components/Logo/Logo";
 import LogoImg from "./assets/logo.jpg";
+import TVShowListItem from "./components/TVShowListItem/TVShowListItem";
 
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
+  const [recommendationList, setRecommendationlist] = useState([]);
 
   async function fetchPopulars() {
     const popularTVShowList = await TVShowAPI.fetchPopulars();
@@ -16,11 +18,26 @@ export function App() {
     }
   }
 
+  async function fetchRecommendations(tvShowId) {
+    const recommendationListResp = await TVShowAPI.fetchRecommendations(
+      tvShowId
+    );
+    if (recommendationListResp.length > 0) {
+      setRecommendationlist(recommendationListResp.slice(0, 10));
+    }
+  }
+
   useEffect(() => {
     fetchPopulars();
   }, []);
 
-  console.log(currentTVShow);
+  useEffect(() => {
+    if (currentTVShow) {
+      fetchRecommendations(currentTVShow.id);
+    }
+  }, [currentTVShow]);
+
+  console.log(recommendationList);
 
   return (
     <div
@@ -44,7 +61,23 @@ export function App() {
       <div className={s.tv_show_detail}>
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </div>
-      <div className={s.recommendations}>Recommendations</div>
+      <div className={s.recommendations}>
+        {currentTVShow &&
+          // <TVShowListItem
+          //   tvShow={currentTVShow}
+          //   onClick={(tvShow) => {
+          //     console.log(tvShow);
+          //   }}
+          // />
+          recommendationList.map((item) => (
+            <TVShowListItem
+              tvShow={item}
+              onClick={(tvShow) => {
+                console.log(tvShow);
+              }}
+            />
+          ))}
+      </div>
     </div>
   );
 }

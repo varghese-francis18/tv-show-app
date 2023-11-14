@@ -17,6 +17,9 @@
 }
 .recommendations{
     flex:2;
-   
+    display: flex;
+    overflow-y: hidden;
+    width: 1280px;
+  overflow-x: scroll;
 }
 
