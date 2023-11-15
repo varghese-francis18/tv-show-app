@@ -1,0 +1,20 @@
+.title {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.list {
+  display: flex;
+  width: 100vw-25px;
+  overflow-y: none;
+  overflow-x: scroll;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}
+
+.tv_show_item {
+  margin-right: 20px;
+}

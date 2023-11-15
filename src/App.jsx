@@ -5,7 +5,7 @@ import { BACKDROP_PATH } from "./API/config";
 import TVShowDetail from "./components/TVShowDetail/TVShowDetail";
 import Logo from "./components/Logo/Logo";
 import LogoImg from "./assets/logo.jpg";
-import TVShowListItem from "./components/TVShowListItem/TVShowListItem";
+import { TVShowList } from "./components/TVShowList/TVShowList";
 
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
@@ -44,7 +44,7 @@ export function App() {
       className={s.main_container}
       style={{
         background: currentTVShow
-          ? `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)) ,url("${BACKDROP_PATH}${currentTVShow.backdrop_path}") no-repeat center / cover`
+          ? `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)) ,url("${BACKDROP_PATH}${currentTVShow.backdrop_path}") no-repeat center`
           : "black",
       }}
     >
@@ -62,21 +62,7 @@ export function App() {
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </div>
       <div className={s.recommendations}>
-        {currentTVShow &&
-          // <TVShowListItem
-          //   tvShow={currentTVShow}
-          //   onClick={(tvShow) => {
-          //     console.log(tvShow);
-          //   }}
-          // />
-          recommendationList.map((item) => (
-            <TVShowListItem
-              tvShow={item}
-              onClick={(tvShow) => {
-                console.log(tvShow);
-              }}
-            />
-          ))}
+        {currentTVShow && <TVShowList tvShowList={recommendationList} />}
       </div>
     </div>
   );

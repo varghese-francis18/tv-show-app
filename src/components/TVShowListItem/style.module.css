@@ -1,19 +1,18 @@
 .container {
-    cursor: pointer;
-    padding-right: 10px;
+  cursor: pointer;
+  position: relative;
 }
 .title {
-    position:absolute;
-    margin-top: -40px;
-    height: 40px;
-    width: 300px;
-    padding: 8px 0px 0px 20px;
-    background-color: rgba(0, 0, 0, 0.8);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
+  position: absolute;
+  margin-top: -40px;
+  height: 40px;
+  width: 300px;
+  padding: 8px 0px 0px 20px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
-.img{
-    border-radius: 10px;
-    opacity: 0.8;
+.img {
+  border-radius: 10px;
 }
