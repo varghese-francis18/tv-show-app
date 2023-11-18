@@ -6,6 +6,7 @@ import TVShowDetail from "./components/TVShowDetail/TVShowDetail";
 import Logo from "./components/Logo/Logo";
 import LogoImg from "./assets/logo.jpg";
 import { TVShowList } from "./components/TVShowList/TVShowList";
+import SearchBar from "./components/SearchBar/SearchBar";
 
 export function App() {
   const [currentTVShow, setCurrentTVShow] = useState();
@@ -41,6 +42,13 @@ export function App() {
     setCurrentTVShow(tvShow);
   }
 
+  async function fetchByTitle(title) {
+    const searchResponse = await TVShowAPI.fetchByTitle(title);
+    if (searchResponse.length > 0) {
+      setCurrentTVShow(searchResponse[0]);
+    }
+  }
+
   return (
     <div
       className={s.main_container}
@@ -57,7 +65,7 @@ export function App() {
           </div>
 
           <div className="col-md-12 col-lg-4">
-            <input type="text" style={{ width: "100%" }} />
+            <SearchBar onSubmit={fetchByTitle} />
           </div>
         </div>
       </div>
