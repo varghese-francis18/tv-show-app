@@ -44,7 +44,7 @@ export function App() {
       className={s.main_container}
       style={{
         background: currentTVShow
-          ? `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)) ,url("${BACKDROP_PATH}${currentTVShow.backdrop_path}") no-repeat center`
+          ? `linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)) ,url("${BACKDROP_PATH}${currentTVShow.backdrop_path}") no-repeat center / cover`
           : "black",
       }}
     >
@@ -53,6 +53,7 @@ export function App() {
           <div className="col-4">
             <Logo img={LogoImg} title="The Watcher" subTitle="Find the Best" />
           </div>
+
           <div className="col-md-12 col-lg-4">
             <input type="text" style={{ width: "100%" }} />
           </div>

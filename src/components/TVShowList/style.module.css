@@ -2,19 +2,25 @@
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
   font-weight: 600;
   font-size: 20px;
+  padding-bottom: 5px;
 }
 
 .list {
   display: flex;
   width: 100vw-25px;
+  padding-bottom: 10px;
   overflow-y: none;
   overflow-x: scroll;
 }
 
 .list::-webkit-scrollbar {
-  display: none;
+  background: transparent;
 }
 
+.list::-webkit-scrollbar-thumb:horizontal {
+  background: rgba(7, 7, 7, 61);
+  border-radius: 10px;
+}
 .tv_show_item {
   margin-right: 20px;
 }
