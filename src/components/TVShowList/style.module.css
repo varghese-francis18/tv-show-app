@@ -10,6 +10,10 @@
   width: 100vw-25px;
   padding-bottom: 10px;
   overflow-y: none;
+  overflow-x: hidden;
+}
+
+.list:hover {
   overflow-x: scroll;
 }
 

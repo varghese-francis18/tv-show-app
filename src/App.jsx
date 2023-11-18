@@ -37,7 +37,9 @@ export function App() {
     }
   }, [currentTVShow]);
 
-  console.log(recommendationList);
+  function updateCurrentTvShow(tvShow) {
+    setCurrentTVShow(tvShow);
+  }
 
   return (
     <div
@@ -63,7 +65,12 @@ export function App() {
         {currentTVShow && <TVShowDetail tvShow={currentTVShow} />}
       </div>
       <div className={s.recommendations}>
-        {currentTVShow && <TVShowList tvShowList={recommendationList} />}
+        {currentTVShow && (
+          <TVShowList
+            onClickItem={updateCurrentTvShow}
+            tvShowList={recommendationList}
+          />
+        )}
       </div>
     </div>
   );
